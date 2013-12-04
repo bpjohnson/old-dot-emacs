@@ -5,7 +5,8 @@
 #Add any ignores specific to this project here.
 auto-save-alist/
 elpa/
-
+#*
+*~
 
 ##############
 # Sencha Cmd #
