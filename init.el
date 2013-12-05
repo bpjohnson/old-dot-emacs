@@ -6,7 +6,7 @@
                           ("marmalade" . "http://marmalade-repo.org/packages/")
                           ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters))
+(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit))
 
 ;;;; Install them if they aren't installed already.
 (dolist (p my-packages)
@@ -19,6 +19,11 @@
 
 ;; Now load my configs:
 (require 'settings)
+
+;; Color themes:
+(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/color-themes")
+(load "~/.emacs.d/site-lisp/color-themes/gtk-ide-theme.el")
+
 
 ;; Configure our packages:
 
@@ -58,6 +63,7 @@
   :config (progn
             (define-key js3-mode-map (kbd "TAB") 'js-tab-properly)
             (add-hook 'js3-mode-hook 'autopair-mode)
+            (add-hook 'js3-mode-hook (lambda () ( setq mode-name "js3" )))
             )
   )
 

@@ -9,6 +9,7 @@ elpa/
 *~
 *.elc
 *.eld
+session.*
 
 ##############
 # Sencha Cmd #
