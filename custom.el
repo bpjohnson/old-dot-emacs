@@ -10,6 +10,7 @@
  '(ecb-non-semantic-parsing-function (quote ((js3-mode . speedbar-fetch-dynamic-imenu))))
  '(ecb-options-version "2.40")
  '(ecb-process-non-semantic-files t)
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(initial-major-mode (quote org-mode))
  '(js3-global-externs (quote ("$" "Ext")))
  '(scss-compile-at-save nil)

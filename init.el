@@ -1,3 +1,7 @@
+;; Start the server, if it's not running
+(load "server")
+(unless (server-running-p) (server-start))
+
 ;; Initial Setup
 ;;; Set up initial packages via ELPA
 
@@ -6,7 +10,7 @@
                           ("marmalade" . "http://marmalade-repo.org/packages/")
                           ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit))
+(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit iedit smartscan))
 
 ;;;; Install them if they aren't installed already.
 (dolist (p my-packages)
@@ -57,12 +61,23 @@
       (if (looking-back "^\s*")
         (back-to-indentation)))))
 
+;;; tern is for javascript-y goodness
+;;; http://ternjs.net/doc/manual.html#emacs
+
+(add-to-list 'load-path "/home/bryan/bin/tern/emacs")
+(autoload 'tern-mode "tern.el" nil t)
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
 (use-package js3-mode
   :mode ("\\.js[on]*$" . js3-mode)
   :diminish (js3-mode . "js3")
   :config (progn
             (define-key js3-mode-map (kbd "TAB") 'js-tab-properly)
             (add-hook 'js3-mode-hook 'autopair-mode)
+            (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
             (add-hook 'js3-mode-hook (lambda () ( setq mode-name "js3" )))
             )
   )
@@ -87,7 +102,13 @@
 ;;;; Coffeescript
 (use-package coffee-mode
   :load-path "site-lisp/coffee-mode"
-  :mode ("\\.coffee" . coffee-mode))
+  :mode ("\\.coffee" . coffee-mode)
+  :config (progn
+    (make-local-variable 'tab-width)
+    (set 'tab-width 2)
+    (setq coffee-assign-regexp "\(\(\w\|\.\|_\|$\)+?\s*\)=")
+  )
+)
 
 ;;;; SCSS mode for css & scss
 (use-package scss-mode
@@ -152,10 +173,22 @@
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
 
+;;;; iedit is some yummy goodness.
+(use-package iedit
+  :bind ("C-;" . iedit-mode))
+
+;;;; Jump between symbols
+(use-package smartscan
+  :init (progn
+          (global-smartscan-mode 1)
+          )
+)
 
 ;;;; Buffer cleanup
 (use-package cleanup-buffer
   :bind ("C-c C-c" . bj/cleanup-buffer))
+
+
 
 ;;;; Misc. Functions
 (require 'my-functions)
