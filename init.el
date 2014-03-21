@@ -10,7 +10,7 @@
                           ("marmalade" . "http://marmalade-repo.org/packages/")
                           ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit iedit smartscan))
+(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit iedit smartscan literate-coffee-mode))
 
 ;;;; Install them if they aren't installed already.
 (dolist (p my-packages)
