@@ -188,7 +188,12 @@
 (use-package cleanup-buffer
   :bind ("C-c C-c" . bj/cleanup-buffer))
 
-
+;;;; OSX Specific Settings
+;; key bindings
+(when (eq system-type 'darwin) ;; mac specific settings
+  (setq mac-option-modifier 'alt)
+  (setq mac-command-modifier 'meta)
+  )
 
 ;;;; Misc. Functions
 (require 'my-functions)
