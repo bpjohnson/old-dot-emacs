@@ -10,3 +10,9 @@
 [submodule "site-lisp/color-themes"]
 	path = site-lisp/color-themes
 	url = https://github.com/emacs-jp/replace-colorthemes.git
+[submodule "site-lisp/perspective"]
+	path = site-lisp/perspective
+	url = https://bpjohnson@github.com/nex3/perspective-el.git
+[submodule "site-lisp/projectile"]
+	path = site-lisp/projectile
+	url = https://bpjohnson@github.com/bbatsov/projectile.git

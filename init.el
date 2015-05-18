@@ -1,32 +1,53 @@
 ;; Start the server, if it's not running
-(load "server")
-(unless (server-running-p) (server-start))
+;(load "server")
+;(unless (server-running-p) (server-start))
 
 ;; Initial Setup
 ;;; Set up initial packages via ELPA
 
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-(package-initialize)
-(defvar my-packages '(auto-complete js3-mode yasnippet autopair flx-ido scss-mode projectile use-package tabbar tabbar-ruler diminish editorconfig rainbow-mode rainbow-delimiters magit magit-gh-pulls magit-push-remote magit-log-edit iedit smartscan literate-coffee-mode))
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
-;;;; Install them if they aren't installed already.
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+
+(defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not.
+
+Return a list of installed packages or nil for every skipped package."
+  (mapcar
+   (lambda (package)
+     ;; (package-installed-p 'evil)
+     (if (package-installed-p package)
+         nil
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+           (package-install package)
+         package)))
+   packages))
+
+;; make sure to have downloaded archive description.
+;; Or use package-archive-contents as suggested by Nicolas Dudebout
+(or (file-exists-p package-user-dir)
+    (package-refresh-contents))
+
+;; activate installed packages
+(package-initialize)
+
+
+(ensure-package-installed 'auto-complete 'js3-mode 'yasnippet 'autopair 'flx-ido 'scss-mode 'use-package 'diminish 'editorconfig 'rainbow-mode 'rainbow-delimiters 'literate-coffee-mode 'wakatime-mode 'dash 'pkg-info)
+
+
+
 
 ;; Load Paths
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-(add-to-list 'load-path "~/.emacs.d")
 
 ;; Now load my configs:
 (require 'settings)
 
 ;; Color themes:
-(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/color-themes")
-(load "~/.emacs.d/site-lisp/color-themes/gtk-ide-theme.el")
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/site-lisp/color-themes")
+;;(load "~/.emacs.d/site-lisp/color-themes/gtk-ide-theme.el")
 
 
 ;; Configure our packages:
@@ -41,14 +62,14 @@
 ;;;;;
 ;;;;; Bound to f12. Fun!
 
-(use-package ecb
-  :config (progn
-            (setq ecb-tip-of-the-day nil)
-            (setq ecb-layout-name "left15")
-            )
-  :bind ("<f12>" . ecb-activate)
-  :load-path "site-lisp/ecb"
-  )
+;(use-package ecb
+;  :config (progn
+;            (setq ecb-tip-of-the-day nil)
+;            (setq ecb-layout-name "left15")
+;            )
+;  :bind ("<f12>" . ecb-activate)
+;  :load-path "site-lisp/ecb"
+;  )
 
 ;;;; JavaScript
 
@@ -64,20 +85,20 @@
 ;;; tern is for javascript-y goodness
 ;;; http://ternjs.net/doc/manual.html#emacs
 
-(add-to-list 'load-path "/home/bryan/bin/tern/emacs")
-(autoload 'tern-mode "tern.el" nil t)
-(eval-after-load 'tern
-   '(progn
-      (require 'tern-auto-complete)
-      (tern-ac-setup)))
-
+;; (add-to-list 'load-path "/home/bryan/bin/tern/emacs")
+;; (autoload 'tern-mode "tern.el" nil t)
+;; (eval-after-load 'tern
+;;    '(progn
+;;       (require 'tern-auto-complete)
+;;       (tern-ac-setup)))
+ 
 (use-package js3-mode
   :mode ("\\.js[on]*$" . js3-mode)
   :diminish (js3-mode . "js3")
   :config (progn
             (define-key js3-mode-map (kbd "TAB") 'js-tab-properly)
             (add-hook 'js3-mode-hook 'autopair-mode)
-            (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
+;            (add-hook 'js3-mode-hook (lambda () (tern-mode t)))
             (add-hook 'js3-mode-hook (lambda () ( setq mode-name "js3" )))
             )
   )
@@ -117,7 +138,7 @@
 
 ;;;; web mode
 (use-package web-mode
-  :diminish "W "
+;  :diminish "W "
   :load-path "site-lisp/web-mode"
   :config (progn
             (add-hook 'web-mode-hook 'autopair-mode)
@@ -137,7 +158,7 @@
 ;;;; YASnippets!
 
 (use-package yasnippet
-  :init (progn
+  :config (progn
           (diminish 'yas-minor-mode " ¥")
           (yas-global-mode 1)
           )
@@ -159,9 +180,15 @@
 
 ;;;; Projectile
 ;;;;; Same with Projectile
+(add-to-list 'load-path "~/.emacs.d/site-lisp/projectile")
 (require 'projectile)
 (projectile-global-mode)
 (diminish 'projectile-mode " ¶")
+
+(add-to-list 'load-path "~/.emacs.d/site-lisp/perspective")
+(require 'perspective)
+(persp-mode)
+(require 'persp-projectile)
 
 ;;;; Editor Config
 ;;;;; Same here. BTW- read more here:
@@ -171,18 +198,7 @@
 ;;;; Rainbow Mode & Delimiters (pretty colors!!)
 (require 'rainbow-mode) ;; colors hex codes like a #bada55
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
-
-;;;; iedit is some yummy goodness.
-(use-package iedit
-  :bind ("C-;" . iedit-mode))
-
-;;;; Jump between symbols
-(use-package smartscan
-  :init (progn
-          (global-smartscan-mode 1)
-          )
-)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;;; Buffer cleanup
 (use-package cleanup-buffer
@@ -197,8 +213,3 @@
 
 ;;;; Misc. Functions
 (require 'my-functions)
-
-;;;; TabBar (limited to files in project)
-(setq tabbar-ruler-global-tabbar t) ; If you want tabbar
-(require 'tabbar-ruler)
-(tabbar-ruler-group-by-projectile-project)
