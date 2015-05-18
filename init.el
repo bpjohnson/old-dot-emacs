@@ -91,10 +91,10 @@ Return a list of installed packages or nil for every skipped package."
 ;;    '(progn
 ;;       (require 'tern-auto-complete)
 ;;       (tern-ac-setup)))
- 
+
 (use-package js3-mode
   :mode ("\\.js[on]*$" . js3-mode)
-  :diminish (js3-mode . "js3")
+;  :diminish (js3-mode . "js3")
   :config (progn
             (define-key js3-mode-map (kbd "TAB") 'js-tab-properly)
             (add-hook 'js3-mode-hook 'autopair-mode)
@@ -214,6 +214,15 @@ Return a list of installed packages or nil for every skipped package."
 (when (eq system-type 'darwin) ;; mac specific settings
   (setq mac-option-modifier 'alt)
   (setq mac-command-modifier 'meta)
+  ;; scroll one line at a time (less "jumpy" than defaults)
+
+    (setq mouse-wheel-scroll-amount '(1 ((shift) . 5))) ;; one line at a time
+
+    (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+
+    (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
+    (setq scroll-step 1) ;; keyboard scroll one line at a time
   )
 
 ;;;; Misc. Functions
