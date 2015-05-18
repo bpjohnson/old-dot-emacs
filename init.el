@@ -190,6 +190,11 @@ Return a list of installed packages or nil for every skipped package."
 (persp-mode)
 (require 'persp-projectile)
 
+;;;; Wakatime tracks time spent per projectile project
+(require 'wakatime-mode)
+(global-wakatime-mode)
+(diminish 'wakatime-mode " $")
+
 ;;;; Editor Config
 ;;;;; Same here. BTW- read more here:
 ;;;;; http://editorconfig.org/
