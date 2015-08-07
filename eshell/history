@@ -1,0 +1,10 @@
+cd bin/
+ls
+cd Sencha/
+ls
+cd Cmd/
+ls
+ls -l
+exit
+which sencha
+exit

@@ -8,11 +8,12 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
+ '(coffee-tab-width 2)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (planet)))
+ '(custom-enabled-themes (quote (whiteboard)))
  '(custom-safe-themes
    (quote
-    ("725bf8c75148ad785f9761623fc56ac1284a5e462a9c41d4645799b5a0375a63" "ba6f8606cae826654d4c2242363f2042dd35c1595ef6367ad44d5f42851e6aa9" "0820d191ae80dcadc1802b3499f84c07a09803f2cb90b343678bdb03d225b26b" "90d329edc17c6f4e43dbc67709067ccd6c0a3caa355f305de2041755986548f2" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "1db337246ebc9c083be0d728f8d20913a0f46edc0a00277746ba411c149d7fe5" "ffe39e540469ef05808ab4b75055cc81266875fa4a0d9e89c2fec1da7a6354f3" "ad24ea739f229477ea348af968634cb7a0748c9015110a777c8effeddfa920f5" "603a9c7f3ca3253cb68584cb26c408afcf4e674d7db86badcfe649dd3c538656" "40bc0ac47a9bd5b8db7304f8ef628d71e2798135935eb450483db0dbbfff8b11" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "14225e826195202fbc17dcf333b94d91deb6e6f5ca3f5a75357009754666822a" default)))
+    ("c006bc787154c31d5c75e93a54657b4421e0b1a62516644bd25d954239bc9933" "725bf8c75148ad785f9761623fc56ac1284a5e462a9c41d4645799b5a0375a63" "ba6f8606cae826654d4c2242363f2042dd35c1595ef6367ad44d5f42851e6aa9" "0820d191ae80dcadc1802b3499f84c07a09803f2cb90b343678bdb03d225b26b" "90d329edc17c6f4e43dbc67709067ccd6c0a3caa355f305de2041755986548f2" "28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "1db337246ebc9c083be0d728f8d20913a0f46edc0a00277746ba411c149d7fe5" "ffe39e540469ef05808ab4b75055cc81266875fa4a0d9e89c2fec1da7a6354f3" "ad24ea739f229477ea348af968634cb7a0748c9015110a777c8effeddfa920f5" "603a9c7f3ca3253cb68584cb26c408afcf4e674d7db86badcfe649dd3c538656" "40bc0ac47a9bd5b8db7304f8ef628d71e2798135935eb450483db0dbbfff8b11" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" "14225e826195202fbc17dcf333b94d91deb6e6f5ca3f5a75357009754666822a" default)))
  '(ecb-layout-window-sizes
    (quote
     (("left15"
@@ -60,6 +61,7 @@
      11 15
      (face flx-highlight-face)))
  '(wakatime-python-bin "/usr/local/bin/python")
+ '(web-mode-enable-comment-keywords t)
  '(web-mode-enable-current-element-highlight t))
 
 
@@ -69,4 +71,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 160 :width normal :foundry "nil" :family "Office Code Pro D"))))
+ '(font-lock-comment-face ((t (:distant-foreground "black" :foreground "gray65"))))
+ '(font-lock-function-name-face ((t (:foreground "coral3" :weight bold))))
+ '(font-lock-string-face ((t (:foreground "gray50"))))
+ '(highlight ((t (:background "gray90"))))
+ '(mode-line-inactive ((t (:background "gray60" :foreground "black" :box (:line-width 1 :color "gray75")))))
+ '(region ((t (:background "lightgray" :box (:line-width 1 :color "grey50")))))
+ '(web-mode-current-element-highlight-face ((t (:weight bold)))))

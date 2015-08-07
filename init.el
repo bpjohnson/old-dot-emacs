@@ -34,7 +34,7 @@ Return a list of installed packages or nil for every skipped package."
 (package-initialize)
 
 
-(ensure-package-installed 'auto-complete 'js3-mode 'yasnippet 'autopair 'flx-ido 'scss-mode 'use-package 'diminish 'editorconfig 'rainbow-mode 'rainbow-delimiters 'literate-coffee-mode 'wakatime-mode 'dash 'pkg-info)
+(ensure-package-installed 'auto-complete 'js3-mode 'yasnippet 'autopair 'flx-ido 'scss-mode 'use-package 'diminish 'editorconfig 'rainbow-mode 'rainbow-delimiters 'literate-coffee-mode 'wakatime-mode 'dash 'pkg-info 'multiple-cursors)
 
 
 
@@ -152,6 +152,13 @@ Return a list of installed packages or nil for every skipped package."
           (add-to-list 'auto-mode-alist '("\\.inc$" . web-mode))
           (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
           (add-to-list 'auto-mode-alist '("\\.tpl$" . web-mode))
+	  (setq web-mode-engines-alist
+		'(
+		  ("php" . "\\.inc")
+		  ("php" . "\\.ihtml")
+		  ("meteor" . "\\.html\\'")
+		  )
+)
           )
   )
 
@@ -204,6 +211,13 @@ Return a list of installed packages or nil for every skipped package."
 (require 'rainbow-mode) ;; colors hex codes like a #bada55
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+;;;;Multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 
 ;;;; Buffer cleanup
 (use-package cleanup-buffer
