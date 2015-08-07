@@ -10,6 +10,7 @@ elpa/
 *.elc
 *.eld
 session.*
+eshell
 
 ##############
 # Sencha Cmd #
