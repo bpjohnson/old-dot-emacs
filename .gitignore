@@ -11,6 +11,9 @@ auto-save-list
 tramp
 .\#*
 projectile-bookmarks.eld
+smex-items
+ido.last
+.graphene-geometry
 
 # Org-mode
 .org-id-locations
