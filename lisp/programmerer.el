@@ -42,8 +42,7 @@
 
 (use-package js2-mode
   :mode "\\.js$"
-  :diminish "js"
- )
+  )
 
 (use-package coffee-mode
  :mode "\\.coffee$"

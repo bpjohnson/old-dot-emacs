@@ -14,6 +14,15 @@
 ;; Initialise the package system.
 (package-initialize)
 
+;; Make sure use-package is installed
+(unless (package-installed-p 'use-package)
+  (message "%s" "Refreshing package db...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  (message "%s" "Installing use-package...")
+  (package-install 'use-package)
+  )
+
 (require 'use-package)
 (setq use-package-always-ensure t) ;; always install packages using package.el
                                    ;; this means local packages need ":ensure nil"
