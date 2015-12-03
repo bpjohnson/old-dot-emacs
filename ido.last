@@ -1,0 +1,76 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/" . "bryan/")
+ ("/Users/bryan/Projects/vt/lib/" . "0-utils/")
+ ("/Users/bryan/Projects/vt/" . "lib/")
+ ("/Users/bryan/Projects/dot-emacs.new/" . "lisp/")
+ ("/Users/bryan/.emacs.d/" . "lisp/")
+ ("/Users/bryan/Projects/" . "csp/")
+ ("/Users/bryan/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/bryan/.emacs.d/"
+ "/Users/bryan/.emacs.d/lisp/"
+ "/Users/bryan/Projects/csp/"
+ "/Users/bryan/Projects/vt/lib/0-utils/"
+ "/Users/bryan/Projects/vt/lib/"
+ "/Users/bryan/Projects/stratix/"
+ "/Users/bryan/Projects/simple-todos-react/"
+ "/Users/bryan/Projects/dot-emacs.new/lisp/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "expansionisms.el"
+ "myfun.el"
+ "newemacs.org"
+ "custom.el"
+ "programmerer.el"
+ "visual.el"
+ "settings.el"
+ "utils.coffee"
+ "Avatar.coffee"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/bryan/.emacs.d/" (22112 42647 0 0) "snippets/" "smex-items" "projectile-bookmarks.eld" "lisp/" "init.el" "ido.last" "elpa/" "backups/" "auto-save-list/" ".graphene-geometry" ".gitignore" "../" "./")
+
+ ("/Users/bryan/.emacs.d/lisp/" (22112 42422 0 0) "visual.el" "utilities.el" "settings.el~" "settings.el" "projectstuff.el" "projectile/" "programmerer.el" "osx-customizations.el~" "osx-customizations.el" "nameframe/" "myfun.el" "learning.el" "expansionisms.el~" "expansionisms.el" "custom.el~" "custom.el" "../" "./")
+
+ ("/Users/bryan/Projects/csp/" (22112 42177 0 0) "newemacs.org~" "newemacs.org" "newemacs.html" "ideas.org" ".DS_Store" "../" "./")
+
+ ("/Users/bryan/" (22112 41760 0 0) "test.txt" "Public/" "Projects/" "Pictures/" "notes.org" "Music/" "Movies/" "log.org" "Library/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "bin/" "Applications/" "AndroidStudioProjects/" ".zshrc.pre-oh-my-zsh" ".zshrc-e" ".zshrc" ".zsh_history" ".zsh-update" ".zlogin" ".zcompdump-Ghostwheel-5.0.8" ".zcompdump-Ghostwheel-5.0.5" ".wakatime.log" ".wakatime.db" ".viminfo" ".vim/" ".Trash/" ".subversion/" ".ssh/" ".rvm.old/" ".psql_history" ".pry_history" ".profile" ".oracle_jre_usage/" ".oh-my-zsh/" ".npm/" ".node-gyp/" ".mysql_history" ".mongorc.js" ".mkshrc" ".minion/" ".meteorsession" ".meteor/" ".MacOSX/" ".local/" ".junique/" ".InstallAnywhere/" ".install4j" ".gradle/" ".gitconfig" ".emacs.d/" ".DS_Store" ".dropbox/" ".dbshell" ".cups/" ".cordova/" ".config/" ".CFUserTextEncoding" ".cache/" ".bashrc" ".bash_profile" ".bash_history" ".android/" "../" "./")
+
+ ("/Users/" (22029 22840 0 0) "Shared/" "bryan/" ".localized" "../" "./")
+
+ ("/Users/bryan/Projects/vt/lib/0-utils/" (21955 47721 0 0) "utils.coffee" "../" "./")
+
+ ("/Users/bryan/Projects/vt/lib/" (21974 4807 0 0) "collections/" "Avatar.coffee" "0-utils/" "../" "./")
+
+ ("/Users/bryan/Projects/vt/" (21962 5459 0 0) "tests/" "start.sh" "settings.json" "server/" "README.md" "public/" "packages/" "lib/" "dev-start.sh" "dev-settings.json" "client/" ".meteor/" ".gitignore" ".gitattributes" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/bryan/Projects/simple-todos-react/" (22111 16891 0 0) "Task.jsx" "simple-todos-react.jsx" "simple-todos-react.html" "simple-todos-react.css" "App.jsx" ".meteor/" "../" "./")
+
+ ("/Users/bryan/.emacs.d/elpa/" (22112 38062 0 0) "yasnippet-20151108.1505/" "which-key-20151113.1009/" "web-mode-20151130.2257/" "use-package-20151105.503/" "swiper-20151119.458/" "smex-20150822.1146/" "smartparens-20151117.407/" "pkg-info-20150517.443/" "perspective-20151106.1317/" "multiple-cursors-20150710.456/" "json-snatcher-20150511.2047/" "json-reformat-20151007.1728/" "json-mode-20151116.2000/" "expand-region-20150902.558/" "epl-20150517.433/" "diminish-20091203.1012/" "dash-20151021.113/" "company-20151103.230/" "bind-key-20150321.213/" "auto-yasnippet-20151109.410/" "archives/" "../" "./")
+
+ ("/Users/bryan/.emacs.d/elpa/web-mode-20151130.2257/" (22112 38063 0 0) "web-mode.elc" "web-mode.el" "web-mode-pkg.elc" "web-mode-pkg.el" "web-mode-autoloads.el" "../" "./")
+
+ ("/Users/bryan/Downloads/" (22112 33153 0 0) ".DS_Store" "../" "./")
+
+ ("/Users/bryan/Projects/dot-emacs.new/lisp/" (22112 35750 0 0) "utilities.el" "settings.el~" "settings.el" "projectstuff.el" "osx-customizations.el~" "osx-customizations.el" "myfun.el" "learning.el" "expansionisms.el~" "expansionisms.el" "custom.el~" "custom.el" "../" "./")
+
+ ("/Users/bryan/Projects/dot-emacs.new/" (22112 35751 0 0) "snippets/" "smex-items" "lisp/" "init.el" "ido.last" "elpa/" "backups/" "auto-save-list/" ".graphene-geometry" ".gitignore" "../" "./")
+
+ ("/Users/bryan/Projects/stratix/" (22091 33046 0 0) "vendor/" "util/" "uploads/" "TODO" "thumbnailer/" "testjson.sh" "tech-app.js" "phpmig.php" "phpinfo.php" "php/" "migrations.txt" "migrations/" "login.js" "login.ihtml" "jsonDecodeTest.php" "js/" "index.php" "index.ihtml" "index.html" "images/" "expire.php" "expire - Copy.php" "css/" "config.codekit" "common/" "build.html" "app.js" "api/" ".htaccess" ".gitignore" ".gitattributes" ".git/" ".codekit-cache/" "../" "./")
+
+ ("/Users/bryan/Projects/" (22111 14431 0 0) "vt/" "vimtrek-sites/" "stratix-update/" "stratix/" "simpleoauth/" "simple-todos-react/" "shaglam/" "sencha5-playground/" "register/" "pmdb/" "playground/" "phpma/" "perspective/" "mediator/" "lib/" "info/" "id-cds-ui/" "id-cds/" "gitback/" "dot-emacs.new/" "dot-emacs/" "dbfoundry/" "csp/" "bc4pub/" "bc4/" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

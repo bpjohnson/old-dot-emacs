@@ -1,0 +1,27 @@
+
+;; ----- smex-history -----
+(
+ customize-face
+ eval-region
+ customize-themes
+ eval-buffer
+ customize-group
+ menu-bar-mode
+ subword-mode
+)
+
+;; ----- smex-data -----
+(
+ (eval-region . 6)
+ (find-file . 2)
+ (load-library . 1)
+ (eval-buffer . 8)
+ (projectile-find-dir . 1)
+ (projectile-find-file . 2)
+ (customize . 1)
+ (customize-group . 3)
+ (subword-mode . 1)
+ (menu-bar-mode . 1)
+ (customize-themes . 1)
+ (customize-face . 1)
+)
