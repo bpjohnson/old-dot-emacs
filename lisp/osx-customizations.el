@@ -4,6 +4,9 @@
 (setq mac-option-modifier 'hyper)
 (setq mac-command-modifier 'meta)
 
+;;Dropbox location
+(setq bj/dropbox-directory "/Users/bryan/Dropbox/Notes")
+
 
 (message "OSX Customizations Loaded")
 (provide 'osx-customizations)
