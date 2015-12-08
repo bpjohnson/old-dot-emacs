@@ -1,67 +1,74 @@
 ;;json mode (separate from js2-mode)
 (use-package json-mode
- :mode "\\.json$"
- )
+  :mode "\\.json$"
+  )
 
 ;;;web mode for html, php and jsx
 (use-package web-mode
- :config
- (progn
-   (rainbow-mode)
-   (setq web-mode-markup-indent-offset 2)
-   (setq web-mode-css-indent-offset 2)
-   (setq web-mode-code-indent-offset 2)
-   (defadvice web-mode-highlight-part (around tweak-jsx activate)
-     (if (equal web-mode-content-type "jsx")
-	 (let ((web-mode-enable-part-face nil))
-	   ad-do-it)
-       ad-do-it))
+  :config
+  (progn
+    (rainbow-mode)
+    (defadvice web-mode-highlight-part (around tweak-jsx activate)
+      (if (equal web-mode-content-type "jsx")
+	  (let ((web-mode-enable-part-face nil))
+	    ad-do-it)
+	ad-do-it))
+    )
+  :init
+  (progn
+    (setq web-mode-engines-alist
+	  '(
+	    ("php" . "\\.inc")
+	    ("php" . "\\.ihtml")
+	    ("meteor" . "\\.html\\'")
+	    )
+	  )
+    (defun my-web-mode-hook ()
+      "Hooks for Web mode."
+      (setq web-mode-markup-indent-offset 2)
+      (setq indent-tabs-mode nil)
+      (setq web-mode-css-indent-offset 2)
+      (setq web-mode-code-indent-offset 2)
+      (setq web-mode-enable-auto-pairing t)
+      )
+
+    (add-hook 'web-mode-hook  'my-web-mode-hook)
+    )
+  :mode
+  (
+   ("\\.php$" . web-mode)
+   ("\\.ihtml$" . web-mode)
+   ("\\.inc$" . web-mode)
+   ("\\.html$" . web-mode)
+   ("\\.tpl$" . web-mode)
+   ("\\.jsx$" . web-mode)
+   ("\\.css$" . web-mode)
+   ("\\.scss$" . web-mode)
    )
- :init
- (progn
-   (setq web-mode-engines-alist
-	 '(
-	   ("php" . "\\.inc")
-	   ("php" . "\\.ihtml")
-	   ("meteor" . "\\.html\\'")
-	   )
-	 )
-   )
- :mode
- (
-  ("\\.php$" . web-mode)
-  ("\\.ihtml$" . web-mode)
-  ("\\.inc$" . web-mode)
-  ("\\.html$" . web-mode)
-  ("\\.tpl$" . web-mode)
-  ("\\.jsx$" . web-mode)
-  ("\\.css$" . web-mode)
-  ("\\.scss$" . web-mode)
   )
- )
 
 (use-package js2-mode
   :mode "\\.js$"
   )
 
 (use-package coffee-mode
- :mode "\\.coffee$"
- :init
- (progn
-   ;; This gives you a tab of 2 spaces
-   (custom-set-variables '(coffee-tab-width 2))
-   )
- )
+  :mode "\\.coffee$"
+  :init
+  (progn
+    ;; This gives you a tab of 2 spaces
+    (custom-set-variables '(coffee-tab-width 2))
+    )
+  )
 
 ;;; The following are more programming utilities than actual programming modes.
 
 ;;;Show a guide to the current indentation level. I use it specifically for coffee-mode.
 (use-package indent-guide
- :init
- (progn
-   (add-hook 'coffee-mode-hook 'indent-guide-mode)
-   )
- )
+  :init
+  (progn
+    (add-hook 'coffee-mode-hook 'indent-guide-mode)
+    )
+  )
 
 ;;;Automatically highlight TODO: and FIXME
 (defun font-lock-comment-annotations ()
@@ -78,14 +85,14 @@ This functions should be added to the hooks of major modes for programming."
 (use-package rainbow-mode)
 
 (use-package rainbow-delimiters
- :init
- (progn
-   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-   )
- )
+  :init
+  (progn
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+    )
+  )
 
 (use-package multi-line
- :bind ("C-d" . multi-line))
+  :bind ("C-d" . multi-line))
 
 ;;editorconfig https://github.com/editorconfig/editorconfig-emacs#readme
 (use-package editorconfig

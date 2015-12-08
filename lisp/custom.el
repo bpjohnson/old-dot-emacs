@@ -12,15 +12,25 @@
  '(menu-bar-mode t)
  '(org-bullets-bullet-list (quote ("•" "○")))
  '(powerline-default-separator (quote chamfer))
+ '(projectile-completion-system (quote ivy))
+ '(projectile-global-mode nil)
+ '(projectile-sort-order (quote recentf))
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
- '(transient-mark-mode (quote (only . t))))
+ '(transient-mark-mode (quote (only . t)))
+ '(web-mode-code-indent-offset 0)
+ '(web-mode-css-indent-offset 0)
+ '(web-mode-enable-current-element-highlight t)
+ '(web-mode-markup-indent-offset 0))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#ffffff" :foreground "#4d4d4c" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Office Code Pro D"))))
+ '(company-preview ((t (:foreground "#8e908c" :family "Office Code Pro D"))))
+ '(company-template-field ((t (:background "orange" :foreground "black" :family "Office Code Pro D"))))
+ '(company-tooltip ((t (:background "#d6d6d6" :family "Office Code Pro D"))))
  '(org-agenda-date ((t (:inherit org-agenda-structure :weight semi-bold :height 1.2))) t)
  '(org-block ((t (:foreground "#f5871f" :family "Office Code Pro D"))))
  '(org-date ((t (:foreground "Purple" :underline t :height 0.8 :family "Times New Roman"))))
@@ -38,6 +48,8 @@
  '(org-table ((t (:foreground "dim gray" :height 0.9 :family "Office Code Pro D"))))
  '(org-tag ((t (:foreground "dark gray" :weight bold :height 0.8))))
  '(org-todo ((t (:foreground "#e67e22" :weight bold :family "Office Code Pro D"))))
+ '(powerline-inactive1 ((t (:inherit mode-line-inactive))))
+ '(powerline-inactive2 ((t (:inherit mode-line-inactive))))
  '(variable-pitch ((t (:family "Times New Roman")))))
 
 

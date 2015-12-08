@@ -44,5 +44,8 @@
 	  )
   )
 
+(use-package react-snippets
+ :demand t)
+
 
 (provide 'expansionisms)
