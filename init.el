@@ -31,15 +31,22 @@
   :load-path "lisp/"
   :ensure nil)
 
-(use-package visual
- :load-path "lisp/"
- :ensure nil)
 
 (use-package osx-customizations
   :load-path "lisp/"
   :ensure nil
   :if (eq system-type 'darwin)
   )
+
+(use-package win-customizations
+  :load-path "lisp/"
+  :ensure nil
+  :if (eq system-type 'windows-nt)
+  )
+
+(use-package visual
+ :load-path "lisp/"
+ :ensure nil)
 
 (use-package learning ;; Packages that help me learn emacs more (which-key, etc)
   :load-path "lisp/"
@@ -66,6 +73,13 @@
   :ensure nil
   :demand t
   :load-path "lisp/")
+
+;;Org Mode.
+(use-package org-stuff
+  :ensure nil
+  :demand t
+  :load-path "lisp/"
+  )
 
 ;; Misc unpackaged functions
 (use-package myfun

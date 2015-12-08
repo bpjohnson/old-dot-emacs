@@ -53,6 +53,10 @@
 (setq auto-save-timeout 1)
 
 
+(defvar bj/dropbox-directory ""
+  "Base Dropbox Directory, set per machine.")
+
+
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 (load custom-file)
 
