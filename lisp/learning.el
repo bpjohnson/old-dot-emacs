@@ -11,6 +11,11 @@
   (progn
     ;;Add Cheatsheet entries here.
     (cheatsheet-add
+     :group 'Org-Mode
+     :key "C-u C-c !"
+     :description "Insert Inactive Timestamp"
+     )
+    (cheatsheet-add
      :group 'Projects
      :key "C-c p p"
      :description "Create New Project")
