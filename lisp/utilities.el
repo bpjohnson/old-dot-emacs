@@ -96,6 +96,9 @@
   :config
   (progn
     (add-to-list 'ido-ignore-files "\\.DS_Store")
+    ;;Dropbox adds a stupid file that breaks ido
+    (add-to-list 'ido-ignore-files "Icon\n")
+
     )
   )
 
