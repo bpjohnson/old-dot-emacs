@@ -31,6 +31,8 @@
  '(company-preview ((t (:foreground "#8e908c" :family "Office Code Pro D"))))
  '(company-template-field ((t (:background "orange" :foreground "black" :family "Office Code Pro D"))))
  '(company-tooltip ((t (:background "#d6d6d6" :family "Office Code Pro D"))))
+ '(highlight-indent-guides-even-face ((t (:background "#efefef"))))
+ '(highlight-indent-guides-odd-face ((t (:background "#dedede"))))
  '(org-agenda-date ((t (:inherit org-agenda-structure :weight semi-bold :height 1.2))) t)
  '(org-block ((t (:foreground "#f5871f" :family "Office Code Pro D"))))
  '(org-date ((t (:foreground "Purple" :underline t :height 0.8 :family "Times New Roman"))))

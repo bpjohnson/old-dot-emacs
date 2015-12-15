@@ -63,10 +63,10 @@
 ;;; The following are more programming utilities than actual programming modes.
 
 ;;;Show a guide to the current indentation level. I use it specifically for coffee-mode.
-(use-package indent-guide
+(use-package highlight-indent-guides
   :init
   (progn
-    (add-hook 'coffee-mode-hook 'indent-guide-mode)
+    (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
     )
   )
 
