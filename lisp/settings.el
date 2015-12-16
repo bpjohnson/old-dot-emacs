@@ -34,23 +34,31 @@
 (setq auto-save-default t)
 (setq backup-inhibited t)
 
-;; Autosafe actual buffers instead of making backups
+;; Don't use electric indent. Ever.
+(add-hook 'after-change-major-mode-hook (lambda() (electric-indent-mode -1)))
+
+;; Autosave actual buffers instead of making backups
 (defun save-buffer-if-visiting-file (&optional args)
   "Save the current buffer only if it is visiting a file"
   (interactive)
-  (if (buffer-file-name)
-      (save-buffer args)))
+  (if (not (active-minibuffer-window)) ;;If we have an active minibuffer window, we can wait.
+      (if (buffer-file-name)
+	  (save-buffer args)
+	)
+    )
+  )
 
 ;; This causes files that I'm editing to be saved automatically by the
 ;; emacs auto-save functionality.  I'm hoping to break myself of the
 ;; c-x c-s twitch.
 (add-hook 'auto-save-hook 'save-buffer-if-visiting-file)
 
-;; save every 20 characters typed (this is the minimum)
-(setq auto-save-interval 20)
+;; save every 200 characters typed 
+(setq auto-save-interval 200)
 
-;; save after 1 second of idle time (default is 30)
-(setq auto-save-timeout 1)
+;; save after 10 seconds of idle time (default is 30)
+(setq auto-save-timeout 10)
+
 
 
 (defvar bj/dropbox-directory ""
