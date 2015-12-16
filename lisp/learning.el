@@ -11,6 +11,11 @@
   (progn
     ;;Add Cheatsheet entries here.
     (cheatsheet-add
+     :group 'Emacs
+     :key "C-x n"
+     :description "Toggle narrow to region/function/org block"
+     )
+    (cheatsheet-add
      :group 'Org-Mode
      :key "C-u C-c !"
      :description "Insert Inactive Timestamp"

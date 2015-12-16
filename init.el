@@ -89,5 +89,6 @@
   (
    ("C-c C-c" . bj/cleanup-buffer)
    ("M-g g" . goto-line-with-feedback)
+   ("C-x n" . narrow-or-widen-dwim) ;; replace whole narrow keymap
    )
   )
