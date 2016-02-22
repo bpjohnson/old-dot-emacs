@@ -6,6 +6,9 @@
 ;; Require Emacs' package functionality
 (require 'package)
 
+;; Add org-mode repo to package sources
+
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 ;; Add the Melpa repository to the list of package sources
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 ;; And marmalade
@@ -80,6 +83,12 @@
   :demand t
   :load-path "lisp/"
   )
+
+(use-package blogging
+  :ensure nil
+  :demand t
+  :load-path "lisp/"
+)
 
 ;; Misc unpackaged functions
 (use-package myfun
