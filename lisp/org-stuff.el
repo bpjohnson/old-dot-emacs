@@ -1,7 +1,16 @@
 (use-package org-bullets
   :init
   (progn
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    (add-hook 'org-mode-hook (lambda ()
+			       (org-bullets-mode 1)
+			       (visual-line-mode)
+			       (org-indent-mode)
+			       ))
+    ;; fontify code in code blocks
+    (setq org-src-fontify-natively t)
+    ;; Change tab behavior to mimic major mode in code blocks
+    (setq org-src-tab-acts-natively t)
+    (setq org-bullets-bullet-list '("•" "○" "●" "▲" "✦" "✺" "✭" "✹" "✸" "✷" "✶" "■"))
     )
   )
 

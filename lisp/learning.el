@@ -21,6 +21,11 @@
      :description "Insert Inactive Timestamp"
      )
     (cheatsheet-add
+     :group 'Org-Mode
+     :key "<s[tab]"
+     :description "Insert src block. e = example q=quote H=html"
+     )
+    (cheatsheet-add
      :group 'Projects
      :key "C-c p p"
      :description "Create New Project")
