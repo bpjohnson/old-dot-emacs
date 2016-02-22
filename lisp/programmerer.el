@@ -94,14 +94,27 @@ This functions should be added to the hooks of major modes for programming."
 (use-package multi-line
   :bind ("C-d" . multi-line))
 
-;;editorconfig https://github.com/editorconfig/editorconfig-emacs#readme
-(use-package editorconfig
+(use-package aggressive-indent
   :disabled t
   :init
   (progn
-    (add-hook 'prog-mode-hook #'editorconfig-mode)
+    (global-aggressive-indent-mode 1)
     )
   )
+
+;;editorconfig https://github.com/editorconfig/editorconfig-emacs#readme
+(use-package editorconfig
+  ;;  :disabled t
+  :demand t
+  )
+
+(use-package git-gutter
+  :disabled t
+  :init
+  (progn
+    (add-hook 'prog-mode-hook #'git-gitter-mode)
+    )
+)
 
 ;;;Subword mode is builtin, but makes forward-word and backward-word understand camelcase
 (global-subword-mode)
